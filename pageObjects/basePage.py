@@ -1,7 +1,8 @@
 import logging
+
 from appium import webdriver
-from appium.webdriver.webdriver import WebDriver
 from appium.webdriver import webelement
+from appium.webdriver.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -9,7 +10,6 @@ log = logging.getLogger("demo's test")
 
 
 class BasePage(object):
-
     def __init__(self, driver):
         # init
         # self
@@ -18,9 +18,9 @@ class BasePage(object):
 
     def set_value(self, locator, value):
 
-        if (WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located(locator)
-        )):
+        if WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(locator)
+        ):
             # 参数传递，元组格式与非元组格式
             element = self.driver.find_element(*locator)
             element.click()
@@ -30,9 +30,9 @@ class BasePage(object):
             log.error("无法输入信息，找不到元素")
 
     def click_thing(self, locator):
-        if (WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located(locator)
-        )):
+        if WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(locator)
+        ):
             element = self.driver.find_element(*locator)
             element.click()
         else:
@@ -43,23 +43,23 @@ class BasePage(object):
 
     def swipe_up(self, driver):
         # 兼容性-适合所有手机，获得屏幕大小--宽，高
-        width = driver.get_window_size()['width']
-        height = driver.get_window_size()['height']
+        width = driver.get_window_size()["width"]
+        height = driver.get_window_size()["height"]
         # swipe（x=起始点x坐标，y=起始点y的坐标，x1=滑动到的点的x坐标，y1=滑动到的点的y坐标）
         # 0，0的点是在屏幕左上角。
         self.driver.swipe(width / 2, height / 3 * 2, width / 2, height / 3 * 1)
 
     def swipe_down(self, driver):
-        width = driver.get_window_size()['width']
-        height = driver.get_window_size()['height']
+        width = driver.get_window_size()["width"]
+        height = driver.get_window_size()["height"]
         self.driver.swipe(width / 2, height / 3, width / 2, height / 3 * 2)
 
     def swipe_right(self, driver):
-        width = driver.get_window_size()['width']
-        height = driver.get_window_size()['height']
+        width = driver.get_window_size()["width"]
+        height = driver.get_window_size()["height"]
         self.driver.swipe(width / 10, height / 2, width / 10 * 9, height / 2)
 
     def swipe_left(self, driver):
-        width = driver.get_window_size()['width']
-        height = driver.get_window_size()['height']
+        width = driver.get_window_size()["width"]
+        height = driver.get_window_size()["height"]
         self.driver.swipe(width / 10 * 9, height / 2, width / 10, height / 2)
