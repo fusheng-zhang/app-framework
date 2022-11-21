@@ -1,5 +1,3 @@
-from datetime import datetime
-
 import allure
 import pytest
 import yaml
@@ -37,7 +35,9 @@ class TestNotePytest(object):
         # # 添加标题和内容
         addnote.add_note_ok(note_title)
         # # 截图
-        # addnote.save_pic(PATH("../reports/screenshots/" + str(datetime.now())) + "addnote.png")
+        # addnote.save_pic(
+        #     PATH("../reports/screenshots/" + str(datetime.now())) + "addnote.png"
+        # )
 
     @pytest.mark.sanity
     # @pytest.mark.skip
