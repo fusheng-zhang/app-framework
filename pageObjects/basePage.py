@@ -15,7 +15,6 @@ class BasePage(object):
         # self
         # 设置driver的类型,所有方法在没有实例时才能点出来
         self.driver: webdriver = driver
-        log.info("这是个初始化驱动！")
 
     def set_value(self, locator, value):
 

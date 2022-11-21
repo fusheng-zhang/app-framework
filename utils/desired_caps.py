@@ -6,7 +6,7 @@ def get_desired_caps():
         "platformName": "android",
         "deviceName": "Fusheng",
         "platformVersion": "12.0",
-        # "app": PATH("../app/test.apk"),
+        "app": PATH("../app/youdaonote_android_6.7.18_youdaoweb.apk"),
         # "unicodeKeyboard": True,
         # "resetKeyboard":False,
     }
